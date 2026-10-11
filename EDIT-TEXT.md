@@ -1,4 +1,4 @@
-# 先学修改网页文字 / Start by editing webpage text
+# 修改网页文字 / Start by editing webpage text
 
 网页：https://telrest.github.io/quicksort-learning/
 Website: https://telrest.github.io/quicksort-learning/
