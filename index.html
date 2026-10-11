@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="输入数字，在浏览器中运行用 C 编写的快排分组函数。 Run a C partition function in your browser.">
+  <title>C 分组实验 · Partition playground</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./partition.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">TELREST / C PLAYGROUND</p>
+      <span id="status" class="status" role="status">加载中 / Loading</span>
+    </header>
+    <section class="intro">
+      <h1>让代码走出终端。</h1>
+      <p class="english-title">Bring your code to the browser.</p>
+      <p>输入一组整数，运行快排的一轮分组。最后一个数是基准。</p>
+      <p class="translation" lang="en">Enter integers to run one quicksort partition. The last number is the pivot.</p>
+    </section>
+    <section class="card" aria-labelledby="input-title">
+      <form id="partition-form">
+        <label id="input-title" for="numbers">输入数字 <span lang="en">/ Input numbers</span></label>
+        <textarea id="numbers" name="numbers" rows="3" maxlength="20000" aria-describedby="input-hint" spellcheck="false">3 1 5 2 6 4</textarea>
+        <p id="input-hint" class="hint">用空格、换行或逗号分隔，最多 1024 个整数。<br><span lang="en">Separate with spaces, newlines, or commas. Up to 1,024 integers.</span></p>
+        <div class="actions">
+          <button id="run" type="submit" disabled>运行分组 <span lang="en">/ Run partition</span></button>
+          <button id="example" class="secondary" type="button">恢复示例 <span lang="en">/ Reset example</span></button>
+        </div>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+    </section>
+    <section class="card output" aria-labelledby="result-title">
+      <div class="section-heading">
+        <h2 id="result-title">运行结果 <span lang="en">/ Result</span></h2>
+        <span id="pivot-label" class="pivot-label" hidden></span>
+      </div>
+      <div id="result" class="numbers" role="status" aria-live="polite">
+        <p class="placeholder">点击“运行分组”查看结果。<br><span lang="en">Click “Run partition” to see the result.</span></p>
+      </div>
+      <p id="position" class="hint" hidden></p>
+      <div class="legend" aria-label="颜色说明 / Color legend">
+        <span><i class="dot left"></i>小于基准 / Below pivot</span>
+        <span><i class="dot pivot"></i>基准 / Pivot</span>
+        <span><i class="dot right"></i>大于或等于基准 / At least pivot</span>
+      </div>
+    </section>
+    <footer>
+      <p>这是快排的一轮分组，左右两段还不一定有序。</p>
+      <p lang="en">This is one partition step. The two sections may still be unsorted.</p>
+    </footer>
+  </main>
+</body>
+</html>
