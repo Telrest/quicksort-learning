@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_NUMBERS 102400
-#define MAX_VISUAL_NUMBERS 6400
+#define MAX_NUMBERS 1024
+#define MAX_VISUAL_NUMBERS 64
 #define MAX_FRAMES (MAX_VISUAL_NUMBERS + 1)
 
 static int numbers[MAX_NUMBERS];
