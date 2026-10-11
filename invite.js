@@ -69,7 +69,7 @@
         return;
       }
       await loadScript("./partition.js?v=invite4");
-      await loadScript("./app.js?v=invite4");
+      await loadScript("./app.js?v=clean-label");
       // 只显示文字，邀请码对应的标题不作为 HTML 执行。
       // Display the matched title as text, never as executable HTML.
       document.getElementById("page-title").textContent = matched.title;
