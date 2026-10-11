@@ -9,7 +9,7 @@ Copy-Item -Path (Join-Path $PSScriptRoot 'public\*') -Destination $webOutput -Fo
 
 & $EmccPath (Join-Path $PSScriptRoot 'src\algorithm.c') `
     -O2 -Wall -Wextra --no-entry `
-    '-sEXPORTED_FUNCTIONS=_run_partition,_get_result,_get_pivot' `
+    '-sEXPORTED_FUNCTIONS=_run_partition,_run_sort,_get_result,_get_pivot,_get_trace_count,_get_trace_frame,_get_frame_left,_get_frame_right,_get_frame_pivot,_get_frame_position' `
     '-sEXPORTED_RUNTIME_METHODS=ccall' `
     '-sMODULARIZE=1' '-sEXPORT_NAME=createPartitionModule' `
     '-sENVIRONMENT=web,node' `

@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="输入数字，在浏览器中运行用 C 编写的快排分组函数。 Run a C partition function in your browser.">
-  <title>C 分组实验 · Partition playground</title>
-  <link rel="stylesheet" href="./style.css">
-  <script defer src="./partition.js"></script>
-  <script defer src="./app.js"></script>
+  <title>快速排序——learning · Quicksort playground</title>
+  <link rel="stylesheet" href="./style.css?v=sort2">
+  <script defer src="./partition.js?v=sort2"></script>
+  <script defer src="./app.js?v=sort2"></script>
 </head>
 <body>
   <main>
@@ -18,16 +18,22 @@
     <section class="intro">
       <h1>让代码走出终端。</h1>
       <p class="english-title">Bring your code to the browser.</p>
-      <p>输入一组整数，运行快排的一轮分组。最后一个数是基准。</p>
-      <p class="translation" lang="en">Enter integers to run one quicksort partition. The last number is the pivot.</p>
+      <p>输入数字直接排序，或一步步观察快排怎样处理它们。</p>
+      <p class="translation" lang="en">Sort your numbers, or watch how quicksort handles them step by step.</p>
     </section>
     <section class="card" aria-labelledby="input-title">
       <form id="partition-form">
+        <label for="mode">选择功能 <span lang="en">/ Choose a mode</span></label>
+        <select id="mode" name="mode">
+          <option value="sort">完整排序 / Full sort · test3.c</option>
+          <option value="visual">排序过程 / Visualization · test4.c</option>
+          <option value="partition">一轮分组 / One partition</option>
+        </select>
         <label id="input-title" for="numbers">输入数字 <span lang="en">/ Input numbers</span></label>
         <textarea id="numbers" name="numbers" rows="3" maxlength="20000" aria-describedby="input-hint" spellcheck="false">3 1 5 2 6 4</textarea>
-        <p id="input-hint" class="hint">用空格、换行或逗号分隔，最多 1024 个整数。<br><span lang="en">Separate with spaces, newlines, or commas. Up to 1,024 integers.</span></p>
+        <p id="input-hint" class="hint">用空格、换行或逗号分隔。排序最多 1024 个数，可视化最多 64 个数。<br><span lang="en">Separate with spaces, newlines, or commas. Up to 1,024 numbers for sorting; 64 for visualization.</span></p>
         <div class="actions">
-          <button id="run" type="submit" disabled>运行分组 <span lang="en">/ Run partition</span></button>
+          <button id="run" type="submit" disabled>运行 <span lang="en">/ Run</span></button>
           <button id="example" class="secondary" type="button">恢复示例 <span lang="en">/ Reset example</span></button>
         </div>
       </form>
@@ -38,19 +44,35 @@
         <h2 id="result-title">运行结果 <span lang="en">/ Result</span></h2>
         <span id="pivot-label" class="pivot-label" hidden></span>
       </div>
+      <div id="playback" class="playback" hidden>
+        <div class="actions">
+          <button id="play" type="button">播放 / Play</button>
+          <button id="previous" class="secondary" type="button">上一步 / Previous</button>
+          <button id="next" class="secondary" type="button">下一步 / Next</button>
+          <button id="restart" class="secondary" type="button">从头查看 / Restart</button>
+        </div>
+        <label class="speed-label" for="speed">每步间隔 / Step interval
+          <select id="speed"><option value="1200">1.2 秒 / seconds</option><option value="600">0.6 秒 / seconds</option><option value="250">0.25 秒 / seconds</option></select>
+        </label>
+        <label for="timeline">查看步骤 / Browse steps</label>
+        <input id="timeline" type="range" min="0" max="1" value="0" step="1">
+        <p id="step-description" class="step-description" aria-live="polite"></p>
+        <div id="bars" class="bars" aria-label="排序柱状图 / Sorting bars"></div>
+        <p class="hint">柱高按这组数字的范围缩放，下方显示实际数值。每一步对应一次分组结束。<br><span lang="en">Bar heights are scaled to the input range; actual values appear below. Each intermediate step shows a completed partition.</span></p>
+      </div>
       <div id="result" class="numbers" role="status" aria-live="polite">
-        <p class="placeholder">点击“运行分组”查看结果。<br><span lang="en">Click “Run partition” to see the result.</span></p>
+        <p class="placeholder">选择功能后点击“运行”。<br><span lang="en">Choose a mode, then click “Run”.</span></p>
       </div>
       <p id="position" class="hint" hidden></p>
-      <div class="legend" aria-label="颜色说明 / Color legend">
+      <div id="legend" class="legend" aria-label="颜色说明 / Color legend" hidden>
         <span><i class="dot left"></i>小于基准 / Below pivot</span>
         <span><i class="dot pivot"></i>基准 / Pivot</span>
         <span><i class="dot right"></i>大于或等于基准 / At least pivot</span>
       </div>
     </section>
     <footer>
-      <p>这是快排的一轮分组，左右两段还不一定有序。</p>
-      <p lang="en">This is one partition step. The two sections may still be unsorted.</p>
+      <p>每段的最后一个数作为基准；先处理左段，再处理右段。</p>
+      <p lang="en">The last number of each range is the pivot; the left range is sorted before the right range.</p>
     </footer>
   </main>
 </body>

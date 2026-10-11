@@ -37,7 +37,7 @@ The English heading below it is on this line and can also be changed:
 Use the same method for lines like this:
 
 ```html
-<p>输入一组整数，运行快排的一轮分组。最后一个数是基准。</p>
+<p>输入数字直接排序，或一步步观察快排怎样处理它们。</p>
 ```
 
 只替换 `<p>` 与 `</p>` 之间的文字。

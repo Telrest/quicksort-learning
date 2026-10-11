@@ -1,7 +1,13 @@
 # 快速排序——learning / Quicksort learning
 
-这是练习中 `partition` 函数的网页版本，执行一轮分组，不是完整排序。
-This web version calls the exercise's `partition` function. It performs one partition, not a complete sort.
+这是你的 C 快排程序的网页版本：完整排序使用 `test3.c` 的递归逻辑，排序过程使用 `test4.c` 每次分组后的数组状态。也保留一轮分组模式。
+This web version uses the recursive quicksort logic from `test3.c` and the post-partition array states from `test4.c` for visualization. One-partition mode is also available.
+
+选择“完整排序”直接得到升序结果；选择“排序过程”后点击运行，再播放、暂停、查看前后步骤或拖动进度条。中间步骤标出当前范围和基准，最后显示完整结果。
+Choose Full sort for an ascending result. In Visualization mode, run first, then play, pause, step backward or forward, or drag the timeline. Intermediate steps highlight the current range and pivot; the last step shows the sorted result.
+
+排序和一轮分组最多支持 1024 个 32 位有符号整数，可视化最多 64 个数。每个中间步骤对应一次分组结束，不记录每次比较或交换。柱高按输入范围缩放，负数与重复值也可以使用。
+Sorting and one-partition mode support up to 1,024 signed 32-bit integers; visualization supports up to 64. Each intermediate step shows a completed partition rather than individual comparisons or swaps. Bar heights are scaled to the input range; negative numbers and duplicates are supported.
 
 ## 文件 / Files
 
@@ -39,8 +45,8 @@ Start an HTTP server in `dist` and open it in a browser. Do not double-click the
 python -m http.server 8765 --bind 127.0.0.1
 ```
 
-打开 `http://127.0.0.1:8765`。输入 `3 1 5 2 6 4`，结果应为 `3 1 2 4 6 5`，基准为 `4`，下标为 `3`。
-Open `http://127.0.0.1:8765`. Input `3 1 5 2 6 4`: expect `3 1 2 4 6 5`, pivot `4`, index `3`.
+打开 `http://127.0.0.1:8765`。输入 `3 1 5 2 6 4`，完整排序结果为 `1 2 3 4 5 6`；一轮分组结果为 `3 1 2 4 6 5`，基准 `4` 放到下标 `3`。
+Open `http://127.0.0.1:8765`. Input `3 1 5 2 6 4`: Full sort gives `1 2 3 4 5 6`; One partition gives `3 1 2 4 6 5`, placing pivot `4` at index `3`.
 
 ## 发布到 GitHub Pages / Publish to GitHub Pages
 
@@ -64,10 +70,10 @@ After publication, visitors only need a browser, not GCC, Emscripten, or VS Code
 ```text
 输入框 / Input field
     ↓ JavaScript 读取文字 / JavaScript reads the text
-run_partition(text) — C 函数 / C function
-    ↓ 返回基准下标 / Returns the pivot index
-get_result() — C 函数 / C function
-    ↓ 返回处理后的数字 / Returns the processed numbers
+run_sort(text, trace) 或 run_partition(text) — C 函数 / C functions
+    ↓ 排序或分组，按需记录步骤 / Sort or partition, optionally recording steps
+get_result() / get_trace_frame(index) — C 函数 / C functions
+    ↓ 返回结果或某一步的数组 / Return the result or an array snapshot
 网页显示结果 / The webpage displays the result
 ```
 
