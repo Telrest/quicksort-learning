@@ -39,8 +39,8 @@ This is a simple browser gate: the configuration is publicly readable and the ga
 
 ## 查看最新版本 / View the latest version
 
-网页：https://telrest.github.io/quicksort-learning/?v=invite4 。入口顶部显示 v4。开发者访问也使用发布后的网页，而不是直接读取 main 中的源码。
-Website: https://telrest.github.io/quicksort-learning/?v=invite4. The entry shows v4 at the top. Developers also receive the deployed page rather than source files on main.
+网页：https://telrest.github.io/quicksort-learning/ 。开发者访问也使用发布后的网页，而不是直接读取 main 中的源码。
+Website: https://telrest.github.io/quicksort-learning/. Developers also receive the deployed page rather than source files on main.
 
 GitHub Pages 构建和浏览器/CDN 缓存都可能让更新暂时不可见。先确认网址是 quicksort-learning，再点击“刷新网页”，或在 Windows 浏览器按 Ctrl + F5。
 GitHub Pages deployment and browser/CDN caching can delay visible updates. First check that the URL is for quicksort-learning, then click Refresh page or press Ctrl + F5 in a Windows browser.
