@@ -186,9 +186,9 @@ byId("example").addEventListener("click", () => {
 });
 async function initialize() {
   try {
-    runtime = await createPartitionModule({locateFile: (path, prefix) => prefix + path + (path.endsWith(".wasm") ? "?v=sort2" : "")});
+    runtime = await createPartitionModule({locateFile: (path, prefix) => prefix + path + (path.endsWith(".wasm") ? "?v=sort3" : "")});
     byId("run").disabled = false;
-    byId("status").textContent = "就绪 / Ready";
+    byId("status").textContent = "就绪 / Ready · v3";
   } catch (error) {
     byId("status").textContent = "加载失败 / Load failed";
     showError("程序未能加载，请刷新页面后重试。 / The program could not load. Refresh the page and try again.");
