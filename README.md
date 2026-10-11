@@ -1,5 +1,8 @@
 # 快速排序——learning / Quicksort learning
 
+网页增加了简单邀请码入口，每个邀请码对应一个专属标题，按你的要求初始列表留空。设置方法见 `SET-INVITE.md`；空列表时正常入口关闭。此入口只用于方便分享体验，不是服务端访问控制。
+The webpage has a simple invite-code gate, with a personalized title for each code and an initially empty list as requested. See SET-INVITE.md to configure it; an empty list closes normal entry. This is a casual sharing barrier rather than server-side access control.
+
 这是你的 C 快排程序的网页版本：完整排序使用 `test3.c` 的递归逻辑，排序过程使用 `test4.c` 每次分组后的数组状态。也保留一轮分组模式。
 This web version uses the recursive quicksort logic from `test3.c` and the post-partition array states from `test4.c` for visualization. One-partition mode is also available.
 

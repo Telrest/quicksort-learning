@@ -5,19 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="输入数字，在浏览器中运行用 C 编写的快排分组函数。 Run a C partition function in your browser.">
   <title>快速排序——learning · Quicksort playground</title>
-  <link rel="stylesheet" href="./style.css?v=sort3">
-  <script defer src="./partition.js?v=sort3"></script>
-  <script defer src="./app.js?v=sort3"></script>
+  <link rel="stylesheet" href="./style.css?v=invite4">
+  <script defer src="./invite.js?v=invite4"></script>
 </head>
 <body>
-  <main>
+  <main id="invite-gate" class="invite-gate">
+    <section class="card invite-card" aria-labelledby="invite-title">
+      <div class="section-heading">
+        <p class="eyebrow">TELREST / QUICKSORT · v4</p>
+        <button class="secondary refresh-link" type="button" data-refresh>刷新网页 / Refresh page</button>
+      </div>
+      <h1 id="invite-title">小伙的快乐排序</h1>
+      <p class="english-title">You’re invited.</p>
+      <p>输入我分享给你的邀请码，即可进入排序实验室。</p>
+      <p class="translation" lang="en">Enter the invite code I shared with you to open the sorting lab.</p>
+      <form id="invite-form">
+        <label for="invite-code">邀请码 <span lang="en">/ Invite code</span></label>
+        <input id="invite-code" name="invite-code" type="password" autocomplete="off" maxlength="128" required aria-describedby="invite-error" disabled>
+        <button id="invite-submit" type="submit" disabled>进入网页 / Enter</button>
+        <p id="invite-error" class="error" role="alert" hidden></p>
+        <p id="invite-status" class="hint" role="status">加载入口 / Loading entry…</p>
+      </form>
+      <noscript><p class="error">请启用 JavaScript 后访问。 / Enable JavaScript to use this page.</p></noscript>
+    </section>
+  </main>
+  <main id="playground" hidden>
     <header>
       <p class="eyebrow">TELREST / C PLAYGROUND</p>
-      <span id="status" class="status" role="status">加载中 / Loading · v3</span>
+      <div class="header-tools">
+        <button class="secondary refresh-link" type="button" data-refresh>刷新网页 / Refresh page</button>
+        <span id="status" class="status" role="status">加载中 / Loading · v4</span>
+      </div>
     </header>
     <section class="intro">
-      <h1>让代码走出终端。</h1>
-      <p class="english-title">Bring your code to the browser.</p>
+      <h1 id="page-title">小伙的快乐排序</h1>
       <p>输入数字直接排序，或一步步观察快排怎样处理它们。</p>
       <p class="translation" lang="en">Sort your numbers, or watch how quicksort handles them step by step.</p>
     </section>
@@ -25,8 +46,8 @@
       <form id="partition-form">
         <label for="mode">选择功能 <span lang="en">/ Choose a mode</span></label>
         <select id="mode" name="mode">
-          <option value="sort">完整排序 / Full sort · test3.c</option>
-          <option value="visual">排序过程 / Visualization · test4.c</option>
+          <option value="sort">完整排序 / Full sort </option>
+          <option value="visual">排序过程 / Visualization </option>
           <option value="partition">一轮分组 / One partition</option>
         </select>
         <label id="input-title" for="numbers">输入数字 <span lang="en">/ Input numbers</span></label>
